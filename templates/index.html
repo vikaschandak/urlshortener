@@ -83,11 +83,23 @@ section {
   </div>
   </form>
   
-  <section id="section"><h2></h2></section>
+  <section id="section">
+    <h2 id = 'ShortURL'></h2><br/>
+  </section>
+  <button onclick="copyToClipboard('#ShortURL')">Copy URL</button>
     
 </main>
 
 <script type="text/javascript">
+
+  function copyToClipboard(element) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($(element).text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+  }
+
   $(document).on('submit','#post-form',function(e){
     e.preventDefault();
 
